@@ -69,3 +69,18 @@ CREATE TABLE visits (
         CONSTRAINT fk_animals FOREIGN KEY (animal_id) REFERENCES animals(id) ON DELETE CASCADE, 
         CONSTRAINT fk_vets FOREIGN KEY (vet_id) REFERENCES vets(id) ON DELETE CASCADE
     );
+
+    -- *********************
+    -- preformance project 
+    -- *********************
+
+    -- Add an email column to your owners table
+    ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+
+    
+    --indexing 
+    CREATE INDEX visits_animal_id_idx ON visits(animal_id);
+
+    CREATE INDEX visits_vets_id_idx ON visits(vet_id);
+
+    CREATE INDEX visits_owners_id_idx ON owners(email)
